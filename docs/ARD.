@@ -1,0 +1,76 @@
+## Architecture Design Records
+
+**PROMPTING:**
+"You're a database & business systems professional, with significant experience in app development. Develop a professional ADR, outlining why the use of technologies. Delve into further how each aspect of technology utilized enables our Buckeye Marketplace to run at peak functionality. Outline the key features of each aspect of integrated tech (react, .net, SQL DB.. all as found above), their core aspects of functionality, and how each behaves with our Buckeye Marketplace. Use concise and descriptive tone, being sure to format in a user-friendly manner for importable purposes into GitHub Documents."
+
+---
+
+## What technology are we using and why?
+
+### **Frontend (React):**
+Within our frontend framework, React is primarily utilized to enable flexibility in feature implementation.
+
+**Features:**
+- Component-based architecture, enabling reuseable UI elements
+- Intermediary layer enables efficient rendering through diffing, and applying changes to real-browser
+- Strong ecosystem for routing
+- Support for highly adaptable, dynamic user experience
+
+**Enables:**
+- Improved usablity, visibility, and scalability of Marketplace's underlying user interface
+
+---
+
+### **Backend (.NET Core Web API):**
+Within our backend framework, .NET is used to implement business logic properties and undermining backend services.
+
+**Features:**
+- High-performance REST API framework
+- Built-in support functions that enable marketplace verification and authentication properties
+- Enables strong integration with SQL DB (NoSQL, MySQL, etc.) and cloud-computing environments
+
+**Enables:**
+- Manages workflows like user authentication through OSU 2FA
+- Provides a reliable layer of service to ensure secure and consistent systems behavior
+
+---
+
+### **Database System: Use of SQL Relational Database(s) (NoSQL, MySQL):**
+As marketplace operations rely extensively on structured relationships between users, sellers, listings, and core information like banking.
+
+**Enables:**
+- Accuracte data storage supporting outstanding marketplace workflows
+- Assists in ensuring user data integrity
+- Efficient product search, bank-information sharing/processing, interactions as a whole
+
+---
+
+### **Cloud-Computing Platform: (Azure, AWS):**
+Buckeye Marketplace will most likely be supported/deployed using Microsoft Azure cloud services, of which will provide the hosting environment and ensure uptime reliablity and scalability.
+
+**Features:**
+- Scalable infrastructure for web applications (Buckeye Marketplace)
+- Provides database management services (listed above as tech-requirement
+- Offer secure networking
+
+**Enables:**
+- Stable, scalable infrastructure supporting continuous technological processes undermining essential business operations
+
+---
+
+### **Layerd System Architecture:**
+Adopting layerd architecture, seperating frontend, backend, and data layers (as outlined)
+
+**Features:**
+- Seperation of concerns/new additions as they arise
+- Improved maintainability of technological operations through ease of diagnosis
+- Ease of additional enhancements
+
+**Enables:**
+- Flexible, maintainable system design alinged with the interative development followed during **Workshop 4** development processes
+
+---
+
+## Summary
+
+In sum, these technologies interact together to foster a cohesive ecosystem, enabling efficient and secure business operations while also fostering interoperability. The outlined stack supports both business and technological workflows required for our marketplace, and provides a strong foundation for future innovation to the user experience.
