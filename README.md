@@ -33,6 +33,7 @@ As for prompt engineering, I utilized general framework: "You're a software engi
   - From here, Claude was able to output various steps I should take regarding development. After scaffolding what had been done within the backend (api) layer, it outlined steps to fortify my frontend layer in a step-by-step fashion, as to not overload Github Copilot...or my brain.
   - One of the most impactful installments was CSS modules, which allowed for each component to have its own isolated stylesheet. This made UI-oriented improvments much easier, while preventing any conflicts simultaneously.
   - I also extended the prompt above, adding "Output effective prompts relevant to (x given step/file), in order to maximize design principles within both relevant .css and .csx. This gave way to many new prompts, some of which were helpful, and a lot of which had to be modified to work better with Opus.
+
 Example: "Following AGENTS.md, create src/services/api.ts. Import the Product interface from ../types. Define API_BASE_URL as http://localhost:5000. Export getProducts() and getProductById(id) with proper error handling."
 
 **Cart Integration**
