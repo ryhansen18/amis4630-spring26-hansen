@@ -1,0 +1,152 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #BB0000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: opacity 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.backBtn:hover {
+  opacity: 0.7;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageCol img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background: #f0f0f0;
+  color: #555;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #111;
+  margin: 0;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #BB0000;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.metaLabel {
+  font-weight: 700;
+  color: #999;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 0.6rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+
+.cartBtn {
+  background: #BB0000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 0.5rem;
+}
+
+.cartBtn:hover {
+  background: #8B0000;
+}
+
+.cartBtn:active {
+  transform: scale(0.98);
+}
+
+.stateWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  gap: 1rem;
+  color: #888;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #eee;
+  border-top-color: #BB0000;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
