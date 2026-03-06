@@ -12,4 +12,4 @@ Must-Have features were organized based on their ability to enable essential mar
 
 Should-Have features come next. While not required at launch, such features are intended to further user experience by way of enhancing usablity, offering avenues of communication, and expand Buckeye Marketplace to a wider array of services.
 
-Finally, later enhancements represent the innovative functionality of the marketplace. In keeping pace with todays rapid technological innovation, features like Gen AI-powered user assistqance, and automated workflows enabling efficiency, will enable Buckeye Marketplace to offer key-differentiators, distancing itself from competition.
+Finally, later enhancements represent the innovative functionality of the marketplace. In keeping pace with todays rapid technological innovation, features like Gen AI-powered user assistance, and automated workflows enabling efficiency, will enable Buckeye Marketplace to offer key-differentiators, distancing itself from competition.
