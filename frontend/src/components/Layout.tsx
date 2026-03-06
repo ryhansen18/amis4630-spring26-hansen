@@ -7,7 +7,7 @@ export default function Layout() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoMark}>B</span>
+            <span className={styles.logoMark}>🌰</span>
             <div className={styles.logoText}>
               <span className={styles.logoTitle}>Buckeye</span>
               <span className={styles.logoSub}>Marketplace</span>
