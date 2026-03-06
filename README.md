@@ -37,6 +37,7 @@ As for prompt engineering, I utilized general framework: "You're a software engi
 Example: "Following AGENTS.md, create src/services/api.ts. Import the Product interface from ../types. Define API_BASE_URL as http://localhost:5000. Export getProducts() and getProductById(id) with proper error handling."
 
 **Cart Integration**
+
 As for cart integration, Github Copilot originally generated the entire system onto one file, similar to what occurred in the cart workshop. After identifying this (which ultimately limited relevant cart-button visuals in general). To fix, I wrote a prompt within Github Copilot: "You're a software engineer leading development on the Buckeye Marketplace project. You've just identified code flaws within the current cart architecture system. As a result, you must parse out the given architecture assignments, to result in proper cart-oriented visuals on the frontend. Draw on instructions written in AGENT.md as not to violate architecture guidelines." 
 
 The split the cart into 5 relevant files (cartTypes, cartReducer, CartContext, CartProvider, and useCart), and ultimately allowed cart architecture to work in the first place.
