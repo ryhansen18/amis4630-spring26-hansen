@@ -45,3 +45,57 @@ As for cart integration, Github Copilot originally generated the entire system o
 The split the cart into 5 relevant files (cartTypes, cartReducer, CartContext, CartProvider, and useCart), and ultimately allowed cart architecture to work in the first place.
 
 
+## Milestone 4 — Shopping Cart: Vertical Slice 2
+
+This milestone wired up the shopping cart from end to end. Users can now add items, 
+adjust quantities, remove items, and clear their cart — with everything saving to a 
+real database instead of just living in memory.
+
+### What was developed?
+
+**Backend (.NET Web API)**
+Added Cart and CartItem models using Entity Framework Core, using SQLite and it's functions as what's acting as the database. 
+Set up the relationships between them and ran migrations to create the tables. Products 
+got moved from the old hardcoded static list into the database as well, and then were seeded on 
+startup. Built out five cart endpoints — get cart, add item, update quantity, remove 
+item, and clear cart — all scoped to a hardcoded guest user for now (auth comes in M5).
+
+**Frontend (React + Vite + TypeScript)**
+Updated the cart so it actually talks to the backend now. CartProvider loads the cart 
+from the API when the app starts, and every cart action (add, update, remove, clear) 
+hits the API and refreshes state. Added a CartPage with quantity controls, subtotals, 
+and a running total. Cart icon in the header shows a live count badge. Product detail 
+page shows a quick "✓ Added!" confirmation after adding something to the cart.
+
+
+### AI Usage
+- **GitHub Copilot (Gemini 2.5 Pro (as opus usage in GitHub student package is no longer supported))** — used inside VS Code for scaffolding models, 
+the CartController, and the CartPage component
+- **Claude.ai (Sonnet 4.6)** — used for step-by-step guidance on EF Core setup, 
+working through build errors, and wiring the frontend to the backend
+
+### Prompts Used
+
+**EF Core setup:**
+"You're a lead software developer. Following along with what's consistent in AGENTS.md, create Cart.cs and CartItem.cs with navigation properties and 
+an AppDbContext with the correct one-to-many relationships for a .NET 10 project."
+
+**CartController:**
+"You're a lead software developer. Following along with what's consistent in AGENTS.md, create a CartController with the 5 endpoints: GET, POST, PUT 
+/{cartItemId}, DELETE /{cartItemId}, DELETE /clear. Hardcode a guest userId for now 
+and inject AppDbContext. Return correct HTTP status codes."
+
+**Frontend wiring:**
+"Update CartProvider to fetch cart from the API on mount. Replace dispatch calls in 
+ProductCard and ProductDetailPage with API calls, then refresh cart state after each 
+operation."
+
+### What I accepted vs. modified
+- EF entity structure was mostly accepted as generated
+- Had to manually add a product seed block to Program.cs after realizing the Products 
+table was empty and cart adds were returning 404s
+- CartPage layout came from Copilot but the CSS was written manually to match the 
+existing design system
+- Caught and fixed several namespace casing issues (api vs Api) that caused build failures
+
+
