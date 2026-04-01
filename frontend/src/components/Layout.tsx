@@ -1,7 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
+import { useCart } from "../context/useCart";
 import styles from "./Layout.module.css";
 
 export default function Layout() {
+  const { state } = useCart();
+  const itemCount = state.items.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
@@ -15,6 +19,13 @@ export default function Layout() {
           </Link>
           <nav className={styles.nav}>
             <Link to="/" className={styles.navLink}>Browse</Link>
+            <span className={styles.navDivider} />
+            <Link to="/cart" className={styles.cartLink}>
+              🛒
+              {itemCount > 0 && (
+                <span className={styles.cartBadge}>{itemCount}</span>
+              )}
+            </Link>
             <span className={styles.navDivider} />
             <Link to="/" className={styles.navCta}>Sell an Item</Link>
           </nav>

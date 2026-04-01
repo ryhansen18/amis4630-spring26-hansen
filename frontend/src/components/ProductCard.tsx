@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Product } from "../types";
 import { useCart } from "../context/useCart";
+import { addToCart } from "../services/api";
 import styles from "./ProductCard.module.css";
 
 interface ProductCardProps {
@@ -8,20 +9,17 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { dispatch } = useCart();
+  const { refreshCart } = useCart();
 
-  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAddToCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: {
-        productId: product.id,
-        title: product.title,
-        price: product.price,
-        imageUrl: product.imageUrl,
-      },
-    });
+    try {
+      await addToCart(product.id, 1);
+      await refreshCart();
+    } catch (err) {
+      console.error("Failed to add to cart:", err);
+    }
   };
 
   return (

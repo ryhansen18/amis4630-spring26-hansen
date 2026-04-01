@@ -1,31 +1,18 @@
 import type { CartState, CartAction } from "./cartTypes";
 
-export const initialState: CartState = { items: [] };
+export const initialState: CartState = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
 export function cartReducer(state: CartState, action: CartAction): CartState {
   switch (action.type) {
-    case "ADD_TO_CART": {
-      const existing = state.items.find(
-        (item) => item.productId === action.payload.productId
-      );
-      if (existing) {
-        return {
-          items: state.items.map((item) =>
-            item.productId === action.payload.productId
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
-      }
-      return { items: [...state.items, { ...action.payload, quantity: 1 }] };
-    }
-    case "REMOVE_FROM_CART":
-      return {
-        items: state.items.filter(
-          (item) => item.productId !== action.payload.productId
-        ),
-      };
+    case "SET_CART":
+      return { ...state, items: action.payload, loading: false, error: null };
     case "CLEAR_CART":
-      return { items: [] };
+      return { ...state, items: [] };
+    default:
+      return state;
   }
 }
