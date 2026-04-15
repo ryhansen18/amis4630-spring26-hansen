@@ -72,6 +72,9 @@ export default function CartPage() {
       </div>
       <div className={styles.summary}>
         <p className={styles.total}>Total: <strong>${total.toFixed(2)}</strong></p>
+        <button onClick={() => navigate("/checkout")} className={styles.checkoutBtn}>
+          Proceed to Checkout
+        </button>
         <button onClick={() => navigate("/")} className={styles.continueBtn}>
           Continue Shopping
         </button>

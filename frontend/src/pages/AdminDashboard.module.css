@@ -1,0 +1,285 @@
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  color: #BB0000;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: #555;
+  transition: all 0.15s;
+}
+
+.tab:hover {
+  border-color: #BB0000;
+  color: #BB0000;
+}
+
+.tabActive {
+  background: #BB0000;
+  border: 1px solid #BB0000;
+  border-radius: 8px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: white;
+}
+
+.addBtn {
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 1.25rem;
+  transition: background 0.15s;
+}
+
+.addBtn:hover {
+  background: #333;
+}
+
+.form {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #BB0000;
+}
+
+.textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #BB0000;
+}
+
+.submitBtn {
+  background: #BB0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.15s;
+}
+
+.submitBtn:hover {
+  background: #8B0000;
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.productRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  border-radius: 10px;
+  padding: 0.875rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.productImg {
+  width: 60px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.productInfo {
+  flex: 1;
+}
+
+.productTitle {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111;
+  margin: 0;
+}
+
+.productMeta {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.productActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: #555;
+  transition: all 0.15s;
+}
+
+.editBtn:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.deleteBtn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: #BB0000;
+  transition: all 0.15s;
+}
+
+.deleteBtn:hover {
+  border-color: #BB0000;
+  background: #fff0f0;
+}
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.orderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.orderConfirmation {
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.orderMeta {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0.2rem 0 0;
+}
+
+.orderAddress {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 0.2rem 0 0;
+}
+
+.orderRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.orderStatus {
+  background: #f0f0f0;
+  color: #555;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.orderTotal {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #BB0000;
+}
+
+.stateWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #eee;
+  border-top-color: #BB0000;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

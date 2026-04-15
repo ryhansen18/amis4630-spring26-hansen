@@ -10,8 +10,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     try {
       const cart = await getCart();
       dispatch({ type: "SET_CART", payload: cart.items });
-    } catch (err) {
-      console.error("Failed to load cart:", err);
+    } catch {
+      // Not logged in or cart empty — just clear state silently
+      dispatch({ type: "CLEAR_CART" });
     }
   }, []);
 

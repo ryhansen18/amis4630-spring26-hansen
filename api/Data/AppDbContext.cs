@@ -1,31 +1,40 @@
 using Api.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<AppUser>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public DbSet<Cart> Carts { get; set; }
-
     public DbSet<Product> Products { get; set; } = null!;
-    public DbSet<CartItem> CartItems { get; set; }
+    public DbSet<Cart> Carts { get; set; } = null!;
+    public DbSet<CartItem> CartItems { get; set; } = null!;
+
+    public DbSet<Order> Orders { get; set; } = null!;
+    public DbSet<PurchasedItem> PurchasedItems { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Cart -> CartItems (one-to-many)
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Cart>()
             .HasMany(c => c.Items)
             .WithOne(i => i.Cart)
             .HasForeignKey(i => i.CartId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // CartItem -> Product (many-to-one, no cascade delete)
         modelBuilder.Entity<CartItem>()
             .HasOne(i => i.Product)
             .WithMany()
             .HasForeignKey(i => i.ProductId)
             .OnDelete(DeleteBehavior.Restrict);
+
+         modelBuilder.Entity<Order>()
+            .HasMany(o => o.Items)
+            .WithOne(i => i.Order)
+            .HasForeignKey(i => i.OrderId)
+            .OnDelete(DeleteBehavior.Cascade);   
     }
 }

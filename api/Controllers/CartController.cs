@@ -1,21 +1,25 @@
 using Api.Data;
 using Api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class CartController : ControllerBase
 {
-    private const string UserId = "guest";
     private readonly AppDbContext _db;
 
     public CartController(AppDbContext db)
     {
         _db = db;
     }
+
+    private string UserId => User.FindFirstValue(ClaimTypes.NameIdentifier)!;
 
     // GET /api/cart
     [HttpGet]
@@ -73,7 +77,7 @@ public class CartController : ControllerBase
     }
 
     // DELETE /api/cart/{cartItemId}
-    [HttpDelete("{cartItemId}")]
+    [HttpDelete("{cartItemId:int}")]
     public async Task<IActionResult> RemoveItem(int cartItemId)
     {
         var item = await _db.CartItems.FindAsync(cartItemId);
