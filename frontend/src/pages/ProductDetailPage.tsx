@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getProductById } from "../services/api";
+import { getProductById, addToCart } from "../services/api";
 import type { Product } from "../types";
-import { useCart } from "../context/useCart";
 import styles from "./ProductDetailPage.module.css";
 
 export default function ProductDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { dispatch } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [adding, setAdding] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -30,16 +29,17 @@ export default function ProductDetailPage() {
   if (error) return <div className={styles.stateWrapper}><p className={styles.errorMsg}>⚠ {error}</p></div>;
   if (!product) return <div className={styles.stateWrapper}><p>Product not found.</p></div>;
 
-  const handleAddToCart = () => {
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: {
-        productId: product.id,
-        title: product.title,
-        price: product.price,
-        imageUrl: product.imageUrl,
-      },
-    });
+  const handleAddToCart = async () => {
+    if (!product) return;
+    setAdding(true);
+    try {
+      await addToCart(product.id, 1);
+      navigate("/cart");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to add to cart");
+    } finally {
+      setAdding(false);
+    }
   };
 
   return (
@@ -60,8 +60,8 @@ export default function ProductDetailPage() {
             <p><span className={styles.metaLabel}>Posted</span>{new Date(product.postedDate).toLocaleDateString()}</p>
           </div>
           <p className={styles.description}>{product.description}</p>
-          <button onClick={handleAddToCart} className={styles.cartBtn}>
-            Add to Cart
+          <button onClick={handleAddToCart} className={styles.cartBtn} disabled={adding}>
+            {adding ? "Adding..." : "Add to Cart"}
           </button>
         </div>
       </div>
