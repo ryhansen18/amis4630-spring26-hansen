@@ -205,8 +205,7 @@ Backend:  `http://localhost:5000`
 - Database Schema: see [docs/ERD.md](./docs/ERD.md)
 
 ### User & Admin Guides
-- [User Guide](./docs/USER-GUIDE.md) — for users
-- [Admin Guide](./docs/ADMIN-GUIDE.md) — for those with admin privleges
+- [User & Admin Guide (PDF)](./docs/WebsiteGuide/User_Admin_Guide.pdf) — Opus utiized for presentation and formatting purposes to ensure doc looks professional.More on this in [AI-USAGE.md](./AI-USAGE.md).
 
 ### Test Plan
 - [Test Plan & Results](./docs/TEST-PLAN.md) — Production testing
