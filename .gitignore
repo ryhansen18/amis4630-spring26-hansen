@@ -52,3 +52,19 @@ lerna-debug.log*
 test-results/
 playwright-report/
 playwright/.cache/
+
+# Build artifacts (local only)
+api/deploy.zip
+api/publish/
+**/publish/
+
+# Azure publish profiles - NEVER commit
+*.PublishSettings
+*.publishsettings
+publish-profile.xml
+
+# Debug files from troubleshooting
+changes.txt
+logs.zip
+logs/
+diff-output.txt
