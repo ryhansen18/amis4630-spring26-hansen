@@ -10,8 +10,6 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 
@@ -123,12 +121,6 @@ using (var scope = app.Services.CreateScope())
         await userManager.CreateAsync(admin, "Password123");
         await userManager.AddToRoleAsync(admin, "Admin");
     }
-}
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
 
 app.UseExceptionHandler();
