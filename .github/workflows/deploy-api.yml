@@ -1,0 +1,59 @@
+name: Deploy API to Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'api/**'
+      - 'api.Tests/**'
+      - '.github/workflows/deploy-api.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          dotnet-quality: 'preview'
+
+      - name: Restore dependencies
+        run: dotnet restore api/api.csproj
+
+      - name: Build
+        run: dotnet build api/api.csproj --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test api.Tests/api.Tests.csproj --configuration Release --verbosity normal
+
+      - name: Publish
+        run: dotnet publish api/api.csproj --configuration Release --output ./publish --no-restore
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-build
+          path: ./publish
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: api-build
+          path: ./publish
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: buckmkt-api-hansen
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_API }}
+          package: ./publish
