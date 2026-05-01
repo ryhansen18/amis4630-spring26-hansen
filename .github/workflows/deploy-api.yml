@@ -34,26 +34,28 @@ jobs:
       - name: Publish
         run: dotnet publish api/api.csproj --configuration Release --output ./publish --no-restore
 
+      - name: Zip artifact
+        run: cd publish && zip -r ../deploy.zip . && cd ..
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: api-build
-          path: ./publish
+          path: ./deploy.zip
 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: api-build
-          path: ./publish
 
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
           app-name: buckmkt-api-hansen
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_API }}
-          package: ./publish
+          package: ./deploy.zip
+          type: zip
