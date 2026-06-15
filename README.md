@@ -113,7 +113,7 @@ This milestone took everything that's been built upon, thereby pushing into Azur
 ### What was developed?
 
 **Database migration: SQLite -> Azure SQL**
-Up through M5, the app was running off SQLite (the buckeye.db file). For production. Though, I was thrown a ton of errors throughout the M6 process, opting to switch to SQL Server. I regenerated all prior migrations, and provisioned an Azure SQL Database (Basic) under a new SQL server (`buckmkt-sql-hansen-01`). Connection string + JWT settings now flow through App Service configuration 
+Up through M5, the app was running off SQLite (the buckeye.db file) during production. However during this Milestone, I was thrown a ton of errors throughout the M6 process, opting to switch to SQL Server. I regenerated all prior migrations, and provisioned an Azure SQL Database (Basic) under a new SQL server (`buckmkt-sql-hansen-01`). Connection string + JWT settings now flow through App Service configuration 
 
 **Backend deployment (Azure App Service)**
 Provisioned an App Service plan (`buckmkt-plan`, B1, then deployed the .NET 10 API to it. Live at `https://buckmkt-api-hansen.azurewebsites.net`. Migrations auto-apply on startup, products + admin user seed on first run.
