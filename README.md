@@ -1,4 +1,4 @@
-## AMIS 4630 Buckeye Marketplace Project
+## Buckeye Marketplace Project
 
 ## Milestone 2 — Feature Prioritization (Kanban Board)
 In the Kanban board visible in projects, Buckeye Marketplace features/user-stories were organized in order of prioritization in the following format:
