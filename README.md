@@ -205,3 +205,7 @@ Backend:  `http://localhost:5000`
 
 ### Test Plan
 - [Test Plan & Results](./docs/TEST-PLAN.md) — Production testing
+
+
+## Update - 7/31
+Support for Azure Student ended, endpoints need adjusted for new deployment (once student access permitted)
